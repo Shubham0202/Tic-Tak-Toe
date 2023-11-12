@@ -8,13 +8,24 @@ const startMatch = document.querySelector('.start-match');
 const startBtn = document.querySelector('.start-btn');
 
 
-//
+// remove disp none from start-match div
 function display_Start_Tie_Retry_Msg(){
     const Intreval = setTimeout(() => {
         startMatch.classList.remove('disp-none');
     }, 500);
 }
 
+//function for display resultOutput msg
+function showResultOutput(msg)
+{
+    return ` <div class="win-msg">
+    ${msg}
+    <span class="material-symbols-rounded star">star</span>
+    <div class="refresh">
+        <span class="material-symbols-rounded ref-icon">refresh</span>
+    </div>
+</div>`;
+}
 startBtn.addEventListener('click', () => {
     startGame();
     choosePlayer();
@@ -92,13 +103,7 @@ function whoWinMatch() {
     ) {
         matchResult.innerHTML = "Player 1 Win";
         //update start-match content to refresh
-        startMatch.innerHTML = `  <div class="win-msg">
-        congratulations `+ playerName[0].innerHTML + ` you win this match
-        <span class="material-symbols-rounded star">star</span>
-        <div class="refresh">
-            <span class="material-symbols-rounded ref-icon">refresh</span>
-        </div>
-    </div> `;
+        startMatch.innerHTML = showResultOutput(  `congratulations `+ playerName[0].innerHTML + ` you win this match`);
 
         //show start match div 
         // playBoxes.forEach(e=>{e.removeEventListener('click',playBoxFunction)});
@@ -117,13 +122,7 @@ function whoWinMatch() {
     ) {
         matchResult.innerHTML = "Player 2 Win";
         //update start-match content to refresh
-        startMatch.innerHTML = `  <div class="win-msg">
-        congratulations `+ playerName[1].innerHTML + ` you win this match
-        <span class="material-symbols-rounded star">star</span>
-        <div class="refresh">
-            <span class="material-symbols-rounded ref-icon">refresh</span>
-        </div>
-    </div> `;
+        startMatch.innerHTML = showResultOutput(`congratulations `+ playerName[1].innerHTML + ` you win this match`);
     //thow error because it is not global function
     // playBoxes.forEach(e=>{e.removeEventListener('click',playBoxFunction)});
         
@@ -143,15 +142,13 @@ playBoxes.forEach((playBox, index) => {
             choosePlayer();//display msg to player turn
             whoWinMatch();
             console.log(flag)
-            if (flag == 10) {
+           
+        }
+        else
+        {
+            if (flag==10) {
                 matchResult.innerHTML = "Tie Match";
-                startMatch.innerHTML = `  <div class="win-msg">
-                    Tie Match
-                <span class="material-symbols-rounded star">star</span>
-                <div class="refresh">
-                    <span class="material-symbols-rounded ref-icon">refresh</span>
-                </div>
-            </div> `;
+                startMatch.innerHTML = showResultOutput("Tie Match");
                 display_Start_Tie_Retry_Msg();
                 restartGame();
             }
