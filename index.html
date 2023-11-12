@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tak Toe</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <!-- <span class="material-symbols-rounded">home</span> -->
+    <div class="players">
+        <div class="player1 player">
+            <span class="material-symbols-rounded">person</span>
+            <span class="player-nm">Player 1</span>
+        </div>
+        <div class="player2 player">
+            <span class="material-symbols-rounded">person</span>
+            <span class="player-nm">Player 2</span>
+        </div>
+    </div>
+    <div class="score-board">
+        <span class="material-symbols-rounded flag">flag</span>
+            <span class="match-result">Match Start</span> 
+        <!-- player 1 Win this match -->
+        <!-- Tie -->
+        <span class="material-symbols-rounded flag">flag</span>
+    </div>
+
+    <div class="play-area">
+        <div class="play-boxes-container">
+        <div class="play-box"></div>
+        <div class="play-box"></div>
+        <div class="play-box"></div>
+        <div class="play-box"></div>
+        <div class="play-box"></div>
+        <div class="play-box"></div>
+        <div class="play-box"></div>
+        <div class="play-box"></div>
+        <div class="play-box"></div>
+        </div>
+    </div>
+    <div class="start-match">
+         <button class="start-btn">
+            <span class="material-symbols-rounded play-icon">play_arrow</span>
+             Start</button> 
+          
+    </div>
+</body>
+<script src="scripts/gameLogic.js"></script>
+</html>

@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.players {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  margin-top: 1em;
+  border: 1px solid;
+  border-radius: 4px;
+  box-shadow: 0 0 1px grey;
+  transition: background 200ms ease;
+}
+
+.active-player {
+  background: green;
+  color: white;
+}
+
+.score-board {
+  margin: 1em 0;
+  padding: 0.5em;
+  text-align: center;
+  border: 1px solid;
+}
+
+.play-area {
+  display: grid;
+  place-items: center;
+  height: 60dvh;
+}
+
+.play-boxes-container {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+}
+
+.play-box {
+  max-width: 90vw;
+  width: 200px;
+  border: 2px solid;
+  place-self: center;
+  height: 100px;
+  text-align: center;
+  font-size: 60px;
+}
+.play-box:nth-child(1), .play-box:nth-child(2), .play-box:nth-child(3) {
+  border-top: none;
+}
+.play-box:nth-child(1), .play-box:nth-child(4), .play-box:nth-child(7) {
+  border-left: none;
+}
+.play-box:nth-child(3), .play-box:nth-child(6), .play-box:nth-child(9) {
+  border-right: none;
+}
+.play-box:nth-child(7), .play-box:nth-child(8), .play-box:nth-child(9) {
+  border-bottom: none;
+}
+
+.span-x {
+  color: red;
+}
+
+.span-o {
+  color: green;
+}
+
+.match-start {
+  color: green;
+}
+
+.match-end {
+  color: purple;
+}
+
+.match-tie {
+  color: #f9f921;
+}
+
+.loose-match {
+  color: red;
+}
+
+.start-match {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0.611);
+  display: grid;
+  place-items: center;
+}
+.start-match .start-btn {
+  padding: 0.5em 2em;
+  padding-left: 1em;
+  font-size: 20px;
+  border: none;
+  border-radius: 4px;
+  background: #00ff55;
+  color: white;
+  box-shadow: 0 0 3px grey;
+  display: flex;
+  align-items: center;
+}
+.start-match .play-icon {
+  font-size: 40px;
+}
+
+.win-msg {
+  color: white;
+  text-transform: capitalize;
+  font-size: 25px;
+}
+
+.refresh {
+  text-align: center;
+  margin-top: 2em;
+}
+.refresh .ref-icon {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 4px;
+  background: red;
+  color: white;
+  font-size: 28px;
+}
+
+.disp-none {
+  display: none;
+}
+
+@media screen and (max-width: 610px) {
+  .play-boxes-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+  }
+  .play-box {
+    width: 100px;
+  }
+}/*# sourceMappingURL=style.css.map */
