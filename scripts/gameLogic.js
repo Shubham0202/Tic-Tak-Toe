@@ -5,9 +5,9 @@ const playBoxes = document.querySelectorAll('.play-box');
 const playerName = document.querySelectorAll('.player-nm');
 const startMatch = document.querySelector('.start-match');
 
-const playIcon = document.querySelector('.play-icon');
+const startBtn = document.querySelector('.start-btn');
 
-playIcon.addEventListener('click', () => {
+startBtn.addEventListener('click', () => {
     startGame();
     choosePlayer();
     startMatch.classList.add('disp-none');
@@ -51,15 +51,16 @@ function restartGame() {
     retry.addEventListener('click', () => {
         playBoxes.forEach(e => {
             e.innerHTML = "";
-        })
+        });
         flag=0;
-        startGame();
-        choosePlayer();
-        player1.classList.remove('active-player');
+        player1.classList.add('active-player');
         player2.classList.remove('active-player');
         startMatch.classList.add('disp-none');
-    })
+        startGame();
+        choosePlayer();
+    });
 }
+
 //who win the match function
 //possible outcomes to win
 // [0,1,2];
@@ -69,7 +70,7 @@ function restartGame() {
 // [1,4,7];
 // [2,5,8];
 // [0,4,8];
-// [0,4,6];
+// [2,4,6];
 function whoWinMatch() {
     if (
         (playBoxes[0].innerHTML.match('X') && playBoxes[1].innerHTML.match('X') && playBoxes[2].innerHTML.match('X')) ||
@@ -79,7 +80,7 @@ function whoWinMatch() {
         (playBoxes[1].innerHTML.match('X') && playBoxes[4].innerHTML.match('X') && playBoxes[7].innerHTML.match('X')) ||
         (playBoxes[2].innerHTML.match('X') && playBoxes[5].innerHTML.match('X') && playBoxes[8].innerHTML.match('X')) ||
         (playBoxes[0].innerHTML.match('X') && playBoxes[4].innerHTML.match('X') && playBoxes[8].innerHTML.match('X')) ||
-        (playBoxes[0].innerHTML.match('X') && playBoxes[4].innerHTML.match('X') && playBoxes[6].innerHTML.match('X'))
+        (playBoxes[2].innerHTML.match('X') && playBoxes[4].innerHTML.match('X') && playBoxes[6].innerHTML.match('X'))
     ) {
         matchResult.innerHTML = "Player 1 Win";
         //update start-match content to refresh
@@ -95,7 +96,7 @@ function whoWinMatch() {
         // playBoxes.forEach(e=>{e.removeEventListener('click',playBoxFunction)});
         const Intreval = setTimeout(() => {
             startMatch.classList.remove('disp-none');
-        }, 3000);
+        }, 500);
         restartGame();
     }
     else if (
@@ -106,7 +107,7 @@ function whoWinMatch() {
         (playBoxes[1].innerHTML.match('O') && playBoxes[4].innerHTML.match('O') && playBoxes[7].innerHTML.match('O')) ||
         (playBoxes[2].innerHTML.match('O') && playBoxes[5].innerHTML.match('O') && playBoxes[8].innerHTML.match('O')) ||
         (playBoxes[0].innerHTML.match('O') && playBoxes[4].innerHTML.match('O') && playBoxes[8].innerHTML.match('O')) ||
-        (playBoxes[0].innerHTML.match('O') && playBoxes[4].innerHTML.match('O') && playBoxes[6].innerHTML.match('O'))
+        (playBoxes[2].innerHTML.match('O') && playBoxes[4].innerHTML.match('O') && playBoxes[6].innerHTML.match('O'))
     ) {
         matchResult.innerHTML = "Player 2 Win";
         //update start-match content to refresh
@@ -140,6 +141,17 @@ playBoxes.forEach((playBox, index) => {
             console.log(flag)
             if (flag == 10) {
                 matchResult.innerHTML = "Tie Match";
+                startMatch.innerHTML = `  <div class="win-msg">
+                    Tie Match
+                <span class="material-symbols-rounded star">star</span>
+                <div class="refresh">
+                    <span class="material-symbols-rounded ref-icon">refresh</span>
+                </div>
+            </div> `;
+                const Intreval = setTimeout(() => {
+                    startMatch.classList.remove('disp-none');
+                }, 500);
+                restartGame();
             }
         }
         // window.globalFunction = playBoxFunction;
