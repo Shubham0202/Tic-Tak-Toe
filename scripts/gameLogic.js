@@ -7,6 +7,14 @@ const startMatch = document.querySelector('.start-match');
 
 const startBtn = document.querySelector('.start-btn');
 
+
+//
+function display_Start_Tie_Retry_Msg(){
+    const Intreval = setTimeout(() => {
+        startMatch.classList.remove('disp-none');
+    }, 500);
+}
+
 startBtn.addEventListener('click', () => {
     startGame();
     choosePlayer();
@@ -94,9 +102,7 @@ function whoWinMatch() {
 
         //show start match div 
         // playBoxes.forEach(e=>{e.removeEventListener('click',playBoxFunction)});
-        const Intreval = setTimeout(() => {
-            startMatch.classList.remove('disp-none');
-        }, 500);
+       display_Start_Tie_Retry_Msg();
         restartGame();
     }
     else if (
@@ -122,9 +128,7 @@ function whoWinMatch() {
     // playBoxes.forEach(e=>{e.removeEventListener('click',playBoxFunction)});
         
     //show start match div 
-        const Intreval = setTimeout(() => {
-            startMatch.classList.remove('disp-none');
-        }, 500);
+        display_Start_Tie_Retry_Msg();
         restartGame();
     }
 }
@@ -148,9 +152,7 @@ playBoxes.forEach((playBox, index) => {
                     <span class="material-symbols-rounded ref-icon">refresh</span>
                 </div>
             </div> `;
-                const Intreval = setTimeout(() => {
-                    startMatch.classList.remove('disp-none');
-                }, 500);
+                display_Start_Tie_Retry_Msg();
                 restartGame();
             }
         }
