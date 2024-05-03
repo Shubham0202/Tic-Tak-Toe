@@ -14,7 +14,7 @@ This project is a simple web-based Tic Tac Toe game developed using HTML, CSS, a
 ## Installation
 
 1. **Clone the repository**:
-git clone https://github.com/Shubham0202/Tic-Tac-Toe.git
+git clone https://github.com/Shubham0202/Tic-Tak-Toe.git
 
 2. **Access the Application**:
 
