@@ -1,4 +1,4 @@
-## Tic Tac Toe Game
+# Tic Tac Toe Game
 
 This project is a simple web-based Tic Tac Toe game developed using HTML, CSS, and JavaScript. It allows two players to play Tic Tac Toe against each other in a web browser.
 
